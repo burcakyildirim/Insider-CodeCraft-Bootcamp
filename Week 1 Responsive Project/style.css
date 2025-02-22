@@ -1,0 +1,113 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  background-color: #000000;
+  color: #ffb22c;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+}
+
+.nav-links li {
+  margin: 0 15px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+}
+
+/* Profil İkonu */
+.profile-icon img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+/* Hamburger Menü (Mobil için) */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.hamburger span {
+  background: white;
+  height: 3px;
+  width: 25px;
+  margin: 4px 0;
+}
+
+/* Menü Checkbox'u Gizle */
+.menu-checkbox {
+  display: none;
+}
+
+.characters {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(200px, 1fr)
+  ); /* 200px üstü ise ızgaraya yayıl */
+  gap: 20px;
+  padding: 20px;
+  text-align: center;
+}
+
+.character {
+  background: #f8f8f8;
+  padding: 15px;
+  border-radius: 10px;
+  transition: transform 0.3s;
+}
+
+.character img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.character:hover {
+  transform: scale(1.05);
+}
+
+/* Küçük Ekranlarda Görünüm */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background: #333;
+    width: 100%;
+    text-align: center;
+  }
+
+  .nav-links li {
+    padding: 15px;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  /* Checkbox Checked Olunca Menü Açılacak */
+  .menu-checkbox:checked + .hamburger + .nav-links {
+    display: flex;
+  }
+
+  .characters {
+    grid-template-columns: 1fr; /* Tek sütun yap */
+  }
+}
