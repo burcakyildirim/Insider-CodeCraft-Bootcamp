@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Giriş Yap</title>
+  </head>
+  <body>
+    <div class="login-container">
+      <form action="#" method="POST" class="login-form">
+        <h2 class="form-title">Kayıt Ol</h2>
+
+        <label for="fullname">İsim Soyisim</label>
+        <input
+          type="text"
+          name="fullname"
+          id="fullname"
+          placeholder="İsim Soyisim"
+        />
+
+        <label for="email">E-posta</label>
+        <input type="email" name="email" id="email" placeholder="E-posta" />
+
+        <label for="birthdate">Doğum Tarihi</label>
+        <input type="date" name="birthdate" id="birthdate" />
+
+        <label for="phone">Telefon Numarası</label>
+        <input
+          type="tel"
+          id="phone"
+          name="phone"
+          maxlength="11"
+          pattern="\d{11}"
+          required
+        />
+
+        <label for="password">Şifre</label>
+        <input
+          type="password"
+          name="password"
+          id="password"
+          placeholder="Şifre"
+        />
+
+        <button type="submit">Kayıt Ol</button>
+      </form>
+      <p>Hesabınız var mı? <a href="#">Giriş Yap</a></p>
+    </div>
+  </body>
+</html>
