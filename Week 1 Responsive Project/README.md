@@ -1,0 +1,1 @@
+# Characters ve episodes dataları FAKE API'dan geldiğinden dolayı proje başlangıcında npm start yazarak başlatmalısınız.
