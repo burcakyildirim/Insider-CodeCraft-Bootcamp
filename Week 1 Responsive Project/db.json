@@ -1,0 +1,26 @@
+{
+    "characters": [
+      { "id": 1, "name": "Phil Dunphy", "role": "Ailenin en eğlenceli babası.", "image": "./img/phil.jpg" },
+      { "id": 2, "name": "Claire Dunphy", "role": "Disiplinli bir anne ve iş kadını.", "image": "./img/claire.webp" },
+      { "id": 3, "name": "Jay Pritchett", "role": "Ailenin bilge büyüğü.", "image": "./img/jay.webp" },
+      { "id": 4, "name": "Gloria Pritchett", "role": "Sert dış görünüşünün altında kocaman bir kalp saklıyor.", "image": "./img/gloria.webp" },
+      { "id": 5, "name": "Cam Tucker", "role": "Neşeli ve duygusal.", "image": "./img/cam.jpg" },
+      { "id": 6, "name": "Mitchell Pritchett", "role": "Mantıklı ve düzen insanı.", "image": "./img/mitchell.webp" },
+      { "id": 7, "name": "Luke Dunphy", "role": "Maceraperest ve yaratıcı.", "image": "./img/luke.webp" },
+      { "id": 8, "name": "Lily Tucker-Pritchett", "role": "Hazırcevap ve özgüvenli.", "image": "./img/lily.webp" },
+      { "id": 9, "name": "Haley Dunphy", "role": "Stil sahibi ve sosyal.", "image": "./img/haley.jpg" },
+      { "id": 10, "name": "Alex Dunphy", "role": "Zeki ve çalışkan.", "image": "./img/alex.webp" },
+      { "id": 11, "name": "Manny Delgado", "role": "Romantik ve sanata düşkün.", "image": "./img/manny.webp" },
+      { "id": 12, "name": "Joe Pritchett", "role": "Minik ama kendinden emin.", "image": "./img/joe.webp" }
+    ],
+    "episodes": [
+    { "id": 1, "title": "The Incident (S01E04)", "description": "Jay'in eski eşi, düğünde olay çıkarınca herkesin unutamayacağı bir yemek yaşanır!", "image": "./img/1pilot.webp" },
+    { "id": 2, "title": "Manny Get Your Gun (S02E08)", "description": "Herkes Manny’nin doğum gününü kutlamak için bir restoranda toplanıyor, ancak Manny yaşlanmayla ilgili küçük bir hayat krizi yaşıyor.", "image": "./img/2pilot.webp" },
+    { "id": 3, "title": "Little Bo Bleep (S03E13)", "description": "Aile, Claire’in belediye meclisi koltuğu için yapacağı televizyon tartışmasına hazırlanmasına yardımcı olur.", "image": "./img/3pilot.webp" },
+    { "id": 4, "title": "Heart Broken (S04E15)", "description": "Phil ve Claire’in Sevgililer Günü planları, Claire’in acil serviste sonlanmasına neden olur.", "image": "./img/4pilot.webp" },
+    { "id": 5, "title": "Australia (S05E20)", "description": "Tüm aile, Phil’in annesinin dileğini yerine getirmek için Avustralya’yı ziyaret eder.", "image": "./img/5pilot.webp" },
+    { "id": 6, "title": "Australia (S08E1)", "description": "Son geziler Dunphy’leri New York’a, Mitch, Cam ve Lily’yi Ortabatı’ya ve Jay, Gloria, Manny ve Joe’yu Juarez, Meksika’ya götürdükten sonra, Pritchett-Dunphy-Tucker ailesi sekizinci sezonun açılışında Babalar Günü için evde bir araya gelir.", "image": "./img/8pilot.webp" }
+  ]
+  }
+
+  
