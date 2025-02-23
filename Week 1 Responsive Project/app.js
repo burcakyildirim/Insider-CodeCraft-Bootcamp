@@ -56,7 +56,7 @@ async function fetchEpisodes() {
     const container = document.querySelector("#episodes .card-container");
 
     const cardsHTML = episodes.map(episode => `
-      <div class="card-item">
+      <div class="card-item episodes">
         <img src="${episode.image}" alt="${episode.title}" />
         <h3>${episode.title}</h3>
         <p>${episode.description}</p>
