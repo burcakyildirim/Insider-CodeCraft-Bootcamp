@@ -6,7 +6,7 @@ Bu proje, **Modern Family** dizisinin karakterlerini ve bölümlerini listeleyen
 
 Projenin düzgün çalışması için **Live Server** ile görüntülemeden önce aşağıdaki adımları takip edin:
 
-### 1️⃣ **Proje Dizinine Gidin**
+### 1️⃣ **Proje Dizininde Değilseniz Dizine Gidin**
 ```
 cd Week\ 1\ Responsive\ Project
 ```
