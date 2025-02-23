@@ -8,9 +8,10 @@
 
 :root {
   --primary-color: #e74c25;
-  --background-color: #f07556;
-  --navbar-bg: #000000;
-  --text-color: white;
+  --background-color: #ffffff;
+  --navbar-bg: #00000071;
+  --navbar-tc: white;
+  --text-color: black;
 }
 
 body {
@@ -29,7 +30,7 @@ body {
   left: 0;
   width: 100%;
   background-color: var(--navbar-bg);
-  color: var(--text-color);
+  color: var(--navbar-tc);
   padding: 15px 40px;
   display: flex;
   justify-content: space-between;
@@ -56,6 +57,11 @@ body {
   font-weight: bold;
 }
 
+.nav-links a:hover,.profile-icon i:hover {
+  color: var(--primary-color);
+  transition: color 0.3s ease;
+}
+
 
 /* Hamburger Menu*/
 
@@ -66,7 +72,7 @@ body {
 }
 
 .hamburger span {
-  background: white;
+  background: var(--background-color);
   height: 3px;
   width: 25px;
   margin: 4px 0;
@@ -82,12 +88,13 @@ body {
   padding: 20px;
   font-size: 3rem;
 }
+
 .home-container {
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: left;
-  color: var(--navbar-bg);
+  color: var(--text-color);
   width: 70%;
   margin: 10px auto;
   gap: 5rem;
@@ -108,31 +115,32 @@ body {
   font-size: 20px;
   width: 80%;
   font-weight: 500;
+  text-align: justify;
 }
 
-/*Episodes */
+/*cards */
 
-.episodes {
+.cards {
   text-align: center;
   margin: 60px auto;
 }
 
-.episodes h2 {
+.cards h2 {
   font-size: 3rem;
   margin-bottom: 20px;
 }
 
-.episode-container {
+.card-container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* İlk satırda 3 eleman */
-  grid-template-rows: auto auto; /* 2 satır oluştur */
+  grid-template-columns: repeat(3, 1fr); 
+  grid-template-rows: auto auto; 
   gap: 20px;
   width: 70%;
   margin: auto;
 }
 
-.episode-card {
-  background: #f8f8f8;
+.card-item {
+  background: var(--background-color);
   padding: 15px;
   border-radius: 10px;
   text-align: center;
@@ -140,46 +148,48 @@ body {
   transition: transform 0.3s ease-in-out;
 }
 
-.episode-card img {
+.card-item img {
   width: 100%;
   height: auto;
   border-radius: 10px;
 }
 
-.episode-card h3 {
+.card-item h3 {
   font-size: 1.2rem;
   margin-top: 10px;
+  text-align: center;
 }
 
-.episode-card p {
+.card-item p {
   font-size: 0.9rem;
   color: #555;
+  padding: 5px;
 }
 
-.episode-card:hover {
+.episodes {
+  text-align: justify;
+}
+
+.card-item:hover {
   transform: scale(1.05);
-  background-color: black;
+  background-color: var(--text-color);
   color: orange;
   transition: 0.3s ease-in-out;
 }
 
-.episode-card:hover h3,
-.episode-card:hover p {
+.card-item:hover h3,
+.card-item:hover p {
     color: orange;
 }
 
-/* Son iki kartı ortala */
-.episode-container .episode-card:nth-child(4),
-.episode-container .episode-card:nth-child(5) {
-  grid-column: span 1; /* Her biri 1 sütun kaplasın */
-  justify-self: center; /* Ortalansın */
-}
 
-/* Characters Section */
 
+/*  Characters Section */
+
+/*
 .characters {
   width: 70%;
-  margin: auto;
+  margin: 60px auto;
   text-align: center;
 }
 
@@ -190,8 +200,11 @@ body {
 
 .characters-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(3, 1fr); 
+  grid-template-rows: auto auto;
   gap: 20px;
+  width: 70%;
+  margin: auto;
 }
 
 .character {
@@ -214,7 +227,7 @@ body {
 }
 
 .character:hover img {
-  filter: brightness(0.7); /* Resmi biraz karartarak efekt ekler */
+  filter: brightness(0.7);
 }
 
 .character img {
@@ -230,15 +243,17 @@ body {
 .character p {
   font-size: 1rem;
   color: #555;
-}
+} 
+*/
 
 .fav-scene {
-  text-align: center;
   margin: 60px auto;
 }
 .fav-scene h2 {
   text-align: center;
   font-size: 3rem;
+  width: 90%;
+  margin: auto;
 }
 
 .video-container {
@@ -250,6 +265,7 @@ body {
   margin: 20px;
   width: 70%;
   margin: 20px auto;
+  text-align: justify;
 }
 
 .video-container p {
@@ -279,11 +295,11 @@ body {
 }
 
 .social-links a:hover {
-  color: #0077b5; /* LinkedIn Mavisi */
+  color: #0077b5;
 }
 
 .social-links a:nth-child(2):hover {
-  color: #e74c25; /* GitHub Rengi */
+  color:var(--primary-color); 
 }
 
 /* Media Queries */
@@ -315,23 +331,22 @@ body {
   .home-container {
     display: flex;
     flex-direction: column;
-    width: 95%;
-    margin: auto;
+    width: 90%;
   }
   .characters {
     grid-template-columns: 1fr;
   }
 
-  .episodes {
+  .cards {
     width: 80%;
   }
-  .episode-container {
+  .card-container {
     grid-template-columns: 1fr;
     width: 100%;
   }
 
-  .episode-card img {
-    height: 150px;
+  .card-item img {
+    height: auto;
   }
 
   .video-container iframe {
@@ -340,7 +355,6 @@ body {
 
   .video-container {
     display: block;
-    width: 80%;
-    text-align: center;
+    width: 90%;
   }
 }
