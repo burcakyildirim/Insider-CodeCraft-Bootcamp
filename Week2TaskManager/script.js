@@ -89,16 +89,32 @@ filterBtn.addEventListener("click", () => {
 })
 
 const sortBtn = document.querySelector(".sort-priority");
+let isSorted = false; 
+let originalTasks = []; 
 
 sortBtn.addEventListener("click", function () {
     const tasks = Array.from(document.querySelectorAll(".task"));
-    const priorityOrder = { "Düşük": 1, "Orta": 2, "Yüksek": 3 };
 
-    tasks.sort((a, b) => {
-        const priorityA = a.querySelector(".task-priority").textContent.split(": ")[1];
-        const priorityB = b.querySelector(".task-priority").textContent.split(": ")[1];
-        return priorityOrder[priorityA] - priorityOrder[priorityB];
-    });
+    if (!isSorted) {
+        
+        originalTasks = [...tasks];
 
-    tasks.forEach(task => taskList.appendChild(task));
+        const priorityOrder = { "Düşük": 1, "Orta": 2, "Yüksek": 3 };
+
+        tasks.sort((a, b) => {
+            const priorityA = a.querySelector(".task-priority").textContent.split(": ")[1];
+            const priorityB = b.querySelector(".task-priority").textContent.split(": ")[1];
+            return priorityOrder[priorityA] - priorityOrder[priorityB];
+        });
+
+        tasks.forEach(task => taskList.appendChild(task));
+
+        sortBtn.textContent = "Normal Sıraya Dön";
+    } else {
+        
+        originalTasks.forEach(task => taskList.appendChild(task));
+        sortBtn.textContent = "Önceliğe Göre Sırala";
+    }
+
+    isSorted = !isSorted; 
 });

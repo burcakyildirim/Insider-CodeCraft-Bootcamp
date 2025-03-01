@@ -1,19 +1,200 @@
+:root {
+  --primary-color: #FF9843;
+  --secondary-color: #86A7FC;
+  --accent-color: #3468C0;
+  --background-color: #FFDD95;
+  --text-color: #193361;
+  --task-bg: white;
+  --completed-bg: #d4edda;
+  --completed-border: #28a745;
+}
+
 * {
-   box-sizing: border-box;
-   margin: 0;
-   padding: 0;
-   font-family: 'Arial', sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Arial", sans-serif;
 }
 
 body {
-    display: flex;
-    width: 100%;
-    gap: 30%;
-    padding: 20px;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  width: 100%;
+  gap: 30%;
+  padding: 50px;
+  justify-content: center;
+  align-items: flex-start;
+  background-color: var(--background-color);
 }
 
+h1 {
+  color: var(--text-color);
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+/* Genel Buton Stili */
+button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  background-color: var(--primary-color);
+  color: white;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+/* Filtreleme ve Sıralama Butonları */
+.filter-completed,
+.sort-priority {
+  background-color: var(--secondary-color);
+  color: white;
+  margin: 5px;
+}
+
+/* Task Listesi */
+#task-list {
+  width: 100%;
+  max-width: 500px;
+  margin-top: 20px;
+}
+
+.task {
+  background: var(--task-bg);
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+/* Görev İçeriği */
+.task-title {
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--text-color);
+}
+
+.task-desc {
+  font-size: 14px;
+  color: #666;
+}
+
+.task-priority {
+  font-size: 14px;
+  font-weight: bold;
+  color: var(--accent-color);
+}
+
+/* Tamamlandı Stil */
 .completed {
-    background-color: green;
+  background-color: var(--completed-bg);
+  border-left: 5px solid var(--completed-border);
+}
+
+/* Durum */
+.task-status {
+  font-size: 14px;
+  font-weight: bold;
+  color: #555;
+}
+
+/* Butonlar */
+.task-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.complete-btn {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.delete-btn {
+  background-color: var(--secondary-color);
+  color: white;
+}
+
+/* Form Stili */
+.task-form {
+  display: flex;
+  flex-direction: column;
+  background: var(--task-bg);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  margin-top: 20px;
+}
+
+.task-form label {
+  font-size: 14px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.task-form input[type="text"] {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.radio-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.radio-group label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.task-form button {
+  background-color: var(--primary-color);
+  color: white;
+  margin-top: 15px;
+}
+
+.filter-completed,
+.sort-priority {
+  width: 300px;
+}
+
+@media (max-width: 768px) {
+  body {
+    padding: 10px;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  #task-list {
+    max-width: 100%;
+  }
+
+  .task-form {
+    max-width: 100%;
+    width: 90%;
+  }
+
+  .task {
+    padding: 10px;
+  }
+
+  button {
+    font-size: 12px;
+    padding: 8px;
+  }
 }

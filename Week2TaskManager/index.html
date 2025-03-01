@@ -24,11 +24,19 @@
         <input type="text" id="text-desc" />
 
         <label>Öncelik</label>
-        <input type="radio" name="priority" value="Düşük" />Düşük
-        <input type="radio" name="priority" value="Orta" />Orta
-        <input type="radio" name="priority" value="Yüksek" />Yüksek
+        <div class="radio-group">
+          <label>
+            <input type="radio" name="priority" value="Düşük" /> Düşük
+          </label>
+          <label>
+            <input type="radio" name="priority" value="Orta" /> Orta
+          </label>
+          <label>
+            <input type="radio" name="priority" value="Yüksek" /> Yüksek
+          </label>
+        </div>
 
-        <button type="submit">Görev Ekle</button>
+        <button type="submit" class="add-btn">Görev Ekle</button>
       </form>
     </div>
     <script src="script.js"></script>
