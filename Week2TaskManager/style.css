@@ -1,0 +1,19 @@
+* {
+   box-sizing: border-box;
+   margin: 0;
+   padding: 0;
+   font-family: 'Arial', sans-serif;
+}
+
+body {
+    display: flex;
+    width: 100%;
+    gap: 30%;
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.completed {
+    background-color: green;
+}

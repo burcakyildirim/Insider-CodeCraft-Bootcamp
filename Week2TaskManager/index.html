@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Task Manager</title>
+  </head>
+  <body>
+    <div>
+      <h1>Task Manager</h1>
+      <button class="filter-completed">Sadece Tamamlananları Göster</button>
+      <button class="sort-priority">Önceliğe Göre Sırala</button>
+      <div id="task-list">
+
+      </div>
+    </div>
+    <div>
+      <form class="task-form">
+        <label>Başlık:</label>
+        <input type="text" id="task-title" required />
+
+        <label>Açıklama:</label>
+        <input type="text" id="text-desc" />
+
+        <label>Öncelik</label>
+        <input type="radio" name="priority" value="Düşük" />Düşük
+        <input type="radio" name="priority" value="Orta" />Orta
+        <input type="radio" name="priority" value="Yüksek" />Yüksek
+
+        <button type="submit">Görev Ekle</button>
+      </form>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
