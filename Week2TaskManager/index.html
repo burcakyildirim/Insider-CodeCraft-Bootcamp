@@ -4,6 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
     <title>Task Manager</title>
   </head>
   <body>
@@ -11,9 +14,7 @@
       <h1>Task Manager</h1>
       <button class="filter-completed">Sadece Tamamlananları Göster</button>
       <button class="sort-priority">Önceliğe Göre Sırala</button>
-      <div id="task-list">
-
-      </div>
+      <div id="task-list"></div>
     </div>
     <div>
       <form class="task-form">
@@ -21,18 +22,18 @@
         <input type="text" id="task-title" required />
 
         <label>Açıklama:</label>
-        <input type="text" id="text-desc" />
+        <input type="text" id="text-desc" required />
 
         <label>Öncelik</label>
         <div class="radio-group">
           <label>
-            <input type="radio" name="priority" value="Düşük" /> Düşük
+            <input type="radio" name="priority" value="Düşük" required /> Düşük
           </label>
           <label>
-            <input type="radio" name="priority" value="Orta" /> Orta
+            <input type="radio" name="priority" value="Orta" required /> Orta
           </label>
           <label>
-            <input type="radio" name="priority" value="Yüksek" /> Yüksek
+            <input type="radio" name="priority" value="Yüksek" required /> Yüksek
           </label>
         </div>
 

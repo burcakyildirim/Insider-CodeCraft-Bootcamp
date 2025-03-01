@@ -1,120 +1,95 @@
 const form = document.querySelector(".task-form");
 const taskList = document.querySelector("#task-list");
+const filterBtn = document.querySelector(".filter-completed");
+const sortBtn = document.querySelector(".sort-priority");
 
 form.addEventListener("submit", (event) => {
-    event.preventDefault();
+  event.preventDefault();
 
-    const title = document.querySelector("#task-title").value.trim(); //TODO: why we use trim and value
-    const description = document.querySelector("#text-desc").value.trim();
-    const priority = document.querySelector('input[name="priority"]:checked');
+  const title = document.querySelector("#task-title").value.trim();
+  const description = document.querySelector("#text-desc").value.trim();
+  const priorityInput = document.querySelector('input[name="priority"]:checked');
 
-    if(!title || !priority) {
-        alert("Lütfen tüm alanları doldurunuz.");
-        return; //TODO: why we use return
-    }
+  if (!title || !priorityInput) {
+    alert("Lütfen tüm alanları doldurunuz.");
+    return;
+  }
 
-    const taskDiv = document.createElement("div");
-    taskDiv.classList.add("task");
-    
-    const titleContainer = document.createElement("div");
-    titleContainer.classList.add("task-title");
-    titleContainer.textContent = title;
+  const task = createTaskElement(title, description, priorityInput.value);
+  taskList.appendChild(task);
 
-    const descContainer = document.createElement("div");
-    descContainer.classList.add("task-desc");
-    descContainer.textContent = description;
-    
-    const priorityContainer = document.createElement("div");
-    priorityContainer.classList.add("task-priority");
-    priorityContainer.textContent = `Öncelik: ${priority.value}`;
-
-    const statusContainer = document.createElement("div");
-    statusContainer.classList.add("task-status");
-    statusContainer.textContent = "Durum: Tamamlanmadı";
-
-
-    const buttonContainer = document.createElement("div");
-    buttonContainer.classList.add("task-buttons");
-
-    const completeBtn = document.createElement("button");
-    completeBtn.classList.add("complete-btn");
-    completeBtn.textContent = "Tamamlandı";
-
-    const deleteBtn = document.createElement("button");
-    deleteBtn.classList.add("delete-btn");
-    deleteBtn.textContent = "Sil";
-
-    buttonContainer.append(completeBtn, deleteBtn);
-    taskDiv.append(titleContainer,descContainer,priorityContainer,statusContainer,buttonContainer);
-    taskList.appendChild(taskDiv);
-
-    form.reset();
+  form.reset();
 });
 
-taskList.addEventListener("click", (event) => {
-    const clickedElement = event.target;
-    const taskDiv = clickedElement.closest(".task");
+function createTaskElement(title, description, priority) {
+  const taskDiv = document.createElement("div");
+  taskDiv.classList.add("task");
+  taskDiv.dataset.priority = priority;
+  
+  const titleContainer = document.createElement("div");
+  titleContainer.classList.add("task-title");
+  titleContainer.textContent = title;
 
-    if(clickedElement.classList.contains("complete-btn")) {
-        event.stopPropagation();
-        const statusContainer = taskDiv.querySelector(".task-status");
-        statusContainer.textContent = "Durum: Tamamlandı";
-        taskDiv.classList.add("completed"); 
-    }
+  const descContainer = document.createElement("div");
+  descContainer.classList.add("task-desc");
+  descContainer.textContent = description;
 
-    if(clickedElement.classList.contains("delete-btn")) {
-        event.stopPropagation(); //TODO: BUNLARA TEKRAR BAK
-        taskDiv.remove();
-    }
-})
+  const priorityContainer = document.createElement("div");
+  priorityContainer.classList.add("task-priority");
+  priorityContainer.textContent = `Öncelik: ${priority}`;
 
-const filterBtn = document.querySelector(".filter-completed");
+  const statusContainer = document.createElement("div");
+  statusContainer.classList.add("task-status");
+  statusContainer.textContent = "Durum: Tamamlanmadı";
+
+  const buttonContainer = document.createElement("div");
+  buttonContainer.classList.add("task-buttons");
+
+  const completeBtn = document.createElement("button");
+  completeBtn.classList.add("complete-btn");
+  completeBtn.textContent = "Tamamlandı";
+  completeBtn.addEventListener("click", (event) => {
+    event.stopPropagation();
+    statusContainer.textContent = "Durum: Tamamlandı";
+    taskDiv.classList.add("completed");
+  });
+
+  const deleteBtn = document.createElement("button");
+  deleteBtn.classList.add("delete-btn");
+  deleteBtn.textContent = "Sil";
+  deleteBtn.addEventListener("click", (event) => {
+    event.stopPropagation();
+    taskDiv.remove();
+  });
+
+  buttonContainer.append(completeBtn, deleteBtn);
+  taskDiv.append(titleContainer, descContainer, priorityContainer, statusContainer, buttonContainer);
+
+  return taskDiv;
+}
+
 let showCompleted = false;
-
 filterBtn.addEventListener("click", () => {
-    showCompleted = !showCompleted;
-    const tasks = document.querySelectorAll(".task");
+  showCompleted = !showCompleted;
+  document.querySelectorAll(".task").forEach((task) => {
+    task.style.display = showCompleted && !task.classList.contains("completed") ? "none" : "block";
+  });
+  filterBtn.textContent = showCompleted ? "Tüm Görevleri Göster" : "Sadece Tamamlananları Göster";
+});
 
-    tasks.forEach(task => {
-        const status = task.querySelector(".task-status").textContent;
-        if(showCompleted) {
-            if(status.includes("Tamamlanmadı")) {
-                task.style.display = "none";
-            }
-        } else {
-            task.style.display = "block";
-        }
-    })
-    filterBtn.textContent = showCompleted ? "Tüm Görevleri Göster" : "Sadece Tamamlananları Göster";
-})
+let isSorted = false;
+sortBtn.addEventListener("click", () => {
+  const tasks = [...taskList.children];
+  const priorityOrder = { Düşük: 1, Orta: 2, Yüksek: 3 };
 
-const sortBtn = document.querySelector(".sort-priority");
-let isSorted = false; 
-let originalTasks = []; 
+  if (!isSorted) {
+    tasks.sort((a, b) => priorityOrder[a.dataset.priority] - priorityOrder[b.dataset.priority]);
+    sortBtn.textContent = "Normal Sıraya Dön";
+  } else {
+    tasks.sort((a, b) => taskList.appendChild(a) - taskList.appendChild(b));
+    sortBtn.textContent = "Önceliğe Göre Sırala";
+  }
 
-sortBtn.addEventListener("click", function () {
-    const tasks = Array.from(document.querySelectorAll(".task"));
-
-    if (!isSorted) {
-        
-        originalTasks = [...tasks];
-
-        const priorityOrder = { "Düşük": 1, "Orta": 2, "Yüksek": 3 };
-
-        tasks.sort((a, b) => {
-            const priorityA = a.querySelector(".task-priority").textContent.split(": ")[1];
-            const priorityB = b.querySelector(".task-priority").textContent.split(": ")[1];
-            return priorityOrder[priorityA] - priorityOrder[priorityB];
-        });
-
-        tasks.forEach(task => taskList.appendChild(task));
-
-        sortBtn.textContent = "Normal Sıraya Dön";
-    } else {
-        
-        originalTasks.forEach(task => taskList.appendChild(task));
-        sortBtn.textContent = "Önceliğe Göre Sırala";
-    }
-
-    isSorted = !isSorted; 
+  tasks.forEach(task => taskList.appendChild(task));
+  isSorted = !isSorted;
 });
