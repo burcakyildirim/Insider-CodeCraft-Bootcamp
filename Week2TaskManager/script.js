@@ -3,6 +3,9 @@ const taskList = document.querySelector("#task-list");
 const filterBtn = document.querySelector(".filter-completed");
 const sortBtn = document.querySelector(".sort-priority");
 
+let originalOrder = [];
+let isSorted = false;
+
 form.addEventListener("submit", (event) => {
   event.preventDefault();
 
@@ -17,6 +20,8 @@ form.addEventListener("submit", (event) => {
 
   const task = createTaskElement(title, description, priorityInput.value);
   taskList.appendChild(task);
+
+  originalOrder.push(task);
 
   form.reset();
 });
@@ -60,6 +65,7 @@ function createTaskElement(title, description, priority) {
   deleteBtn.addEventListener("click", (event) => {
     event.stopPropagation();
     taskDiv.remove();
+    originalOrder = originalOrder.filter(t => t !== taskDiv);
   });
 
   buttonContainer.append(completeBtn, deleteBtn);
@@ -77,7 +83,6 @@ filterBtn.addEventListener("click", () => {
   filterBtn.textContent = showCompleted ? "Tüm Görevleri Göster" : "Sadece Tamamlananları Göster";
 });
 
-let isSorted = false;
 sortBtn.addEventListener("click", () => {
   const tasks = [...taskList.children];
   const priorityOrder = { Düşük: 1, Orta: 2, Yüksek: 3 };
@@ -86,7 +91,8 @@ sortBtn.addEventListener("click", () => {
     tasks.sort((a, b) => priorityOrder[a.dataset.priority] - priorityOrder[b.dataset.priority]);
     sortBtn.textContent = "Normal Sıraya Dön";
   } else {
-    tasks.sort((a, b) => taskList.appendChild(a) - taskList.appendChild(b));
+    tasks.length = 0; 
+    originalOrder.forEach(task => taskList.appendChild(task)); 
     sortBtn.textContent = "Önceliğe Göre Sırala";
   }
 
