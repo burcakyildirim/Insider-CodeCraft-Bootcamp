@@ -4,19 +4,20 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
-    <title>CountDown</title>
+    <title>Countdown Timer</title>
   </head>
   <body>
-    <div>
+    <div class="container">
+      <h1>Geri Sayım Uygulaması</h1>
       <input
         type="number"
         id="seconds-input"
-        placeholder="Süreyi Giriniz:(saniye)"
+        placeholder="Süreyi Giriniz (saniye)"
       />
-      <button class="start-btn" onclick="start()">Başlat</button>
-      <button class="reset-btn" onclick="reset()">Sıfırla</button>
-    </div>
-    <div>
+      <div class="buttons">
+        <button class="start-btn" onclick="start()">Başlat</button>
+        <button class="reset-btn" onclick="reset()">Sıfırla</button>
+      </div>
       <p id="seconds-display">Geri Sayım Başlıyor</p>
     </div>
     <script src="script.js"></script>
