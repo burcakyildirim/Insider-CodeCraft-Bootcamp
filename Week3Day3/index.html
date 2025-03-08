@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+    <title>Başvuru Yap</title>
+  </head>
+  <body>
+    <button id="showForm">Başvuru Yap</button>
+    <div id="applicationForm" style="display: none">
+      <form id="jobApplication">
+        <label>Ad: <input type="text" name="firstName" required /></label>
+        <label>Soyad: <input type="text" name="lastName" required /></label>
+        <label>E-posta: <input type="email" name="email" required /></label>
+        <label>Telefon: <input type="text" name="phone" required /></label>
+        <label
+          >Pozisyon:
+          <select name="position">
+            <option value="frontend">Frontend Developer</option>
+            <option value="backend">Backend Developer</option>
+            <option value="fullstack">Full Stack Developer</option>
+          </select>
+        </label>
+        <label>Tarih: <input type="text" id="datepicker" name="date" /></label>
+        <button type="submit">Gönder</button>
+        <button type="button" id="closeForm">Kapat</button>
+      </form>
+    </div>
+
+    <div id="successMessage" style="display: none">
+      Başvurunuz başarıyla gönderildi!
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
