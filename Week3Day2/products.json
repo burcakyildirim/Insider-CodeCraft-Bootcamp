@@ -1,0 +1,52 @@
+[
+    {
+      "name": "Apple MacBook Air M2",
+      "price": "43.999 TL",
+      "link": "https://www.apple.com/tr/macbook-air/"
+    },
+    {
+      "name": "Samsung Galaxy S24 Ultra",
+      "price": "54.999 TL",
+      "link": "https://www.samsung.com/tr/smartphones/galaxy-s24-ultra/"
+    },
+    {
+      "name": "Sony WH-1000XM5 Kulaklık",
+      "price": "13.499 TL",
+      "link": "https://www.sony.com.tr/headphones/products/wh-1000xm5"
+    },
+    {
+      "name": "PlayStation 5",
+      "price": "23.999 TL",
+      "link": "https://www.playstation.com/tr-tr/ps5/"
+    },
+    {
+      "name": "Logitech MX Master 3S Mouse",
+      "price": "3.499 TL",
+      "link": "https://www.logitech.com/tr-tr/products/mice/mx-master-3s"
+    },
+    {
+      "name": "Dell XPS 15 Laptop",
+      "price": "64.999 TL",
+      "link": "https://www.dell.com/tr-tr/shop/dell-xps-15"
+    },
+    {
+      "name": "iPad Pro M2",
+      "price": "35.999 TL",
+      "link": "https://www.apple.com/tr/ipad-pro/"
+    },
+    {
+      "name": "Xiaomi Robot Süpürge S10+",
+      "price": "15.999 TL",
+      "link": "https://www.mi.com/tr/product/xiaomi-robot-vacuum-s10-plus/"
+    },
+    {
+      "name": "Canon EOS R6 Mark II",
+      "price": "89.999 TL",
+      "link": "https://www.canon.com.tr/cameras/eos-r6-mark-ii/"
+    },
+    {
+      "name": "Samsung 49” Odyssey OLED G9",
+      "price": "52.999 TL",
+      "link": "https://www.samsung.com/tr/monitors/gaming/odyssey-oled-g9/"
+    }
+  ]
