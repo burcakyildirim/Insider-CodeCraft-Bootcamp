@@ -1,0 +1,108 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+:root {
+    --background-color: #EBE8DB;
+    --primary-color: #D76C82;
+    --secondary-color: #B03052;
+    --completed-color: #3D0301;
+    --text-color: #3D0301;
+    --button-hover: #B03052;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    background-color: var(--background-color);
+    text-align: center;
+    margin: 0;
+    padding: 20px;
+    color: var(--text-color);
+  }
+  
+  h1 {
+    color: var(--secondary-color);
+  }
+  
+  .task-form {
+    margin: 20px auto;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+  }
+  
+  #task-input {
+    width: 250px;
+    padding: 10px;
+    border: 1px solid var(--secondary-color);
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: var(--background-color);
+    color: var(--text-color);
+  }
+  
+  .add-btn {
+    padding: 10px 15px;
+    border: none;
+    background-color: var(--primary-color);
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  .add-btn:hover {
+    background-color: var(--button-hover);
+  }
+  
+  #task-list {
+    list-style: none;
+    padding: 0;
+    max-width: 400px;
+    margin: auto;
+  }
+  
+  .task {
+    background: white;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .completed {
+    background-color: var(--completed-color);
+    text-decoration: line-through;
+    color: white;
+  }
+  
+  .task-buttons button {
+    margin-left: 5px;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .complete-btn {
+    background-color: var(--secondary-color);
+    color: white;
+  }
+  
+  .complete-btn:hover {
+    background-color: var(--primary-color);
+  }
+  
+  .delete-btn {
+    background-color: var(--completed-color);
+    color: white;
+  }
+  
+  .delete-btn:hover {
+    background-color: var(--secondary-color);
+  }
