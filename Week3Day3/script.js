@@ -26,12 +26,14 @@ $(document).ready(function () {
         required: true,
         minlength: 14,
       },
+      date: "required",
     },
     messages: {
       firstName: "Adınızı girin",
       lastName: "Soyadınızı girin",
       email: "Geçerli bir e-posta girin",
       phone: "Geçerli bir telefon numarası girin",
+      date: "Lütfen bir tarih seçin",
     },
     submitHandler: function (form) {
       $("#applicationForm").fadeOut();
