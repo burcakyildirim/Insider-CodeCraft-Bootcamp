@@ -1,0 +1,82 @@
+[
+    {
+      "title": "Dune",
+      "author": "Frank Herbert",
+      "price": 250,
+      "link": "https://www.dr.com.tr/kitap/dune/frank-herbert/edebiyat/roman/bilim-kurgu/urunno=0000000064054",
+      "description": "Bilim kurgu edebiyatının en büyük klasiklerinden biri.",
+      "img": "img/dune.png"
+    },
+    {
+      "title": "Savaş ve Barış",
+      "author": "Lev Tolstoy",
+      "price": 300,
+      "link": "https://www.kitapyurdu.com/kitap/savas-ve-baris/343461.html",
+      "description": "Rus aristokrasisinin destansı hikayesi.",
+      "img": "img/tolstoy.png"
+    },
+    {
+      "title": "1984",
+      "author": "George Orwell",
+      "price": 180,
+      "link": "https://www.dr.com.tr/kitap/1984/edebiyat/roman/dunya-roman/urunno=0000000064037",
+      "description": "Distopya edebiyatının en bilinen eserlerinden biri.",
+      "img": "img/1984.png"
+    },
+    {
+      "title": "Cesur Yeni Dünya",
+      "author": "Aldous Huxley",
+      "price": 200,
+      "link": "https://www.kitapyurdu.com/kitap/cesur-yeni-dunya/379545.html",
+      "description": "Teknolojinin hakim olduğu bir geleceğin tasviri.",
+      "img": "img/cesuryenidunya.png"
+    },
+    {
+      "title": "Hayvan Çiftliği",
+      "author": "George Orwell",
+      "price": 120,
+      "link": "https://www.dr.com.tr/kitap/hayvan-ciftligi/edebiyat/roman/dunya-roman/urunno=0000000064038",
+      "description": "Siyasi alegori ve güçlü bir toplumsal eleştiri.",
+      "img": "img/hayvanciftligi.png"
+    },
+    {
+      "title": "Suç ve Ceza",
+      "author": "Fyodor Dostoyevski",
+      "price": 270,
+      "link": "https://www.kitapyurdu.com/kitap/suc-ve-ceza/396881.html",
+      "description": "Vicdan ve adalet arasındaki psikolojik savaş.",
+      "img": "img/sucveceza.png"
+    },
+    {
+      "title": "Simyacı",
+      "author": "Paulo Coelho",
+      "price": 160,
+      "link": "https://www.dr.com.tr/kitap/simyaci/paulo-coelho/edebiyat/roman/dunya-roman/urunno=0000000109893",
+      "description": "Hayallerin peşinden gitmenin önemini anlatan modern bir klasik.",
+      "img": "img/simyacı.png"
+    },
+    {
+      "title": "Atomik Alışkanlıklar",
+      "author": "James Clear",
+      "price": 190,
+      "link": "https://www.dr.com.tr/kitap/atomik-aliskanliklar/kisisel-gelisim/kisisel-gelisim/urunno=0001877657001",
+      "description": "Küçük alışkanlıkların büyük değişimler yaratabileceğini anlatan bir rehber.",
+      "img": "img/atomik.jpg"
+    },
+    {
+      "title": "Bir Ömür Nasıl Yaşanır?",
+      "author": "İlber Ortaylı",
+      "price": 220,
+      "link": "https://www.kitapyurdu.com/kitap/bir-omur-nasil-yasanir/445825.html",
+      "description": "İlber Ortaylı'dan hayat ve bilgi üzerine önemli tavsiyeler.",
+      "img": "img/biromur.png"
+    },
+    {
+      "title": "Sapiens",
+      "author": "Yuval Noah Harari",
+      "price": 290,
+      "link": "https://www.kitapyurdu.com/kitap/sapiens/416750.html",
+      "description": "İnsanlık tarihinin kapsamlı bir anlatımı.",
+      "img": "img/sapiens.avif"
+    }
+  ]
