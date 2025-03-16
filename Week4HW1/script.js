@@ -26,6 +26,7 @@ const addStyles = () => {
       padding: 5px 10px;
       cursor: pointer;
       border-radius: 3px;
+      transition: background 0.3s;
     }
     .delete-btn:hover {
       background: #B82132;
@@ -37,18 +38,18 @@ const addStyles = () => {
 const getUsersData = () => {
   return new Promise((resolve, reject) => {
     fetch("https://jsonplaceholder.typicode.com/users")
-      .then((response) => {
+      .then(response => {
         if (!response.ok) {
           throw new Error("Kullanıcı verisi alınamadı!");
         }
         return response.json();
       })
-      .then((users) => {
+      .then(users => {
         saveToLocalStorage(users);
         displayUsers(users);
         resolve(users);
       })
-      .catch((error) => {
+      .catch(error => {
         console.error("Hata:", error.message);
         usersContainer.innerHTML = `<p style="color: red;">Hata: ${error.message}</p>`;
         reject(error);
@@ -84,43 +85,40 @@ const loadUsers = () => {
   }
 
   getUsersData()
-    .then((data) => console.log("Kullanıcı verisi başarıyla alındı:", data))
-    .catch((error) => console.log("Hata oluştu:", error));
+    .then(data => console.log("Kullanıcı verisi başarıyla alındı:", data))
+    .catch(error => console.log("Hata oluştu:", error));
 };
 
 const displayUsers = (users) => {
-  if (users.length === 0) {
-    usersContainer.innerHTML = `<p>Kayıtlı kullanıcı bulunmamaktadır.</p>`;
-    return;
-  }
+  usersContainer.innerHTML = users.length
+    ? users
+        .map(
+          user => `
+        <div class="user-card" data-id="${user.id}">
+          <h3>${user.name}</h3>
+          <p><strong>Email:</strong> ${user.email}</p>
+          <p><strong>Adres:</strong> ${user.address.city}, ${user.address.street}</p>
+          <button class="delete-btn">Sil</button>
+        </div>
+      `
+        )
+        .join("")
+    : `<p>Kayıtlı kullanıcı bulunmamaktadır.</p>`;
 
-  usersContainer.innerHTML = users
-    .map(
-      (user) => `
-      <div class="user-card" data-id="${user.id}">
-        <h3>${user.name}</h3>
-        <p><strong>Email:</strong> ${user.email}</p>
-        <p><strong>Adres:</strong> ${user.address.city}, ${user.address.street}</p>
-        <button class="delete-btn">Sil</button>
-      </div>
-    `
-    )
-    .join("");
-
-  document.querySelectorAll(".delete-btn").forEach((button) => {
-    button.addEventListener("click", deleteUser);
-  });
+  document.querySelectorAll(".delete-btn").forEach(button =>
+    button.addEventListener("click", deleteUser)
+  );
 };
 
 const deleteUser = (event) => {
   const userCard = event.target.closest(".user-card");
   const userId = Number(userCard.dataset.id);
 
-  let storedDataString = localStorage.getItem("usersData");
-  let storedData = storedDataString ? JSON.parse(storedDataString) : null;
+  const storedDataString = localStorage.getItem("usersData");
+  const storedData = storedDataString ? JSON.parse(storedDataString) : null;
 
   if (storedData) {
-    storedData.users = storedData.users.filter((user) => user.id !== userId);
+    storedData.users = storedData.users.filter(user => user.id !== userId);
     localStorage.setItem("usersData", JSON.stringify(storedData));
 
     if (storedData.users.length === 0) {
