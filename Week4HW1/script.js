@@ -37,18 +37,18 @@ const addStyles = () => {
 const getUsersData = () => {
   return new Promise((resolve, reject) => {
     fetch("https://jsonplaceholder.typicode.com/users")
-      .then(response => {
+      .then((response) => {
         if (!response.ok) {
           throw new Error("Kullanıcı verisi alınamadı!");
         }
         return response.json();
       })
-      .then(users => {
+      .then((users) => {
         saveToLocalStorage(users);
         displayUsers(users);
         resolve(users);
       })
-      .catch(error => {
+      .catch((error) => {
         console.error("Hata:", error.message);
         usersContainer.innerHTML = `<p style="color: red;">Hata: ${error.message}</p>`;
         reject(error);
@@ -59,14 +59,14 @@ const getUsersData = () => {
 const saveToLocalStorage = (users) => {
   const data = {
     users,
-    timestamp: Date.now()
+    timestamp: Date.now(),
   };
   localStorage.setItem("usersData", JSON.stringify(data));
 };
 
 const loadUsers = () => {
   const dataString = localStorage.getItem("usersData");
-  const data = dataString ? JSON.parse(dataString) : null; 
+  const data = dataString ? JSON.parse(dataString) : null;
 
   if (data) {
     const currentTime = Date.now();
@@ -84,8 +84,8 @@ const loadUsers = () => {
   }
 
   getUsersData()
-  .then(data => console.log("Kullanıcı verisi başarıyla alındı:", data))
-  .catch(error => console.log("Hata oluştu:", error));
+    .then((data) => console.log("Kullanıcı verisi başarıyla alındı:", data))
+    .catch((error) => console.log("Hata oluştu:", error));
 };
 
 const displayUsers = (users) => {
@@ -95,17 +95,19 @@ const displayUsers = (users) => {
   }
 
   usersContainer.innerHTML = users
-    .map(user => `
+    .map(
+      (user) => `
       <div class="user-card" data-id="${user.id}">
         <h3>${user.name}</h3>
         <p><strong>Email:</strong> ${user.email}</p>
         <p><strong>Adres:</strong> ${user.address.city}, ${user.address.street}</p>
         <button class="delete-btn">Sil</button>
       </div>
-    `)
+    `
+    )
     .join("");
 
-  document.querySelectorAll(".delete-btn").forEach(button => {
+  document.querySelectorAll(".delete-btn").forEach((button) => {
     button.addEventListener("click", deleteUser);
   });
 };
@@ -118,7 +120,7 @@ const deleteUser = (event) => {
   let storedData = storedDataString ? JSON.parse(storedDataString) : null;
 
   if (storedData) {
-    storedData.users = storedData.users.filter(user => user.id !== userId);
+    storedData.users = storedData.users.filter((user) => user.id !== userId);
     localStorage.setItem("usersData", JSON.stringify(storedData));
 
     if (storedData.users.length === 0) {
@@ -132,4 +134,3 @@ const deleteUser = (event) => {
 
 addStyles();
 loadUsers();
-
