@@ -22,8 +22,7 @@ class ShoppingCart {
         throw new Error("Ürün bulunamadı!");
       }
 
-      if (product.stock <= quantity) {
-        // < yerine <= kullanıldı
+      if (product.stock <= quantity) {// < yerine <= kullanıldı
         throw new Error("Yetersiz stok!");
       }
 
@@ -79,7 +78,7 @@ class ShoppingCart {
   }
 
   calculateTotal() {
-    debugger; // buraya debugger attım ki toplamı doğru topluyor mu diyor kaç ürün eklersem ekleyeyim scope da total hiç değişmedi burayı böyle fark ettim
+    debugger;
     this.total = this.items.reduce((sum, item) => {
       return sum + item.price; // quantity çarpımı unutuldu
     }, 0);
