@@ -1,6 +1,6 @@
 # Debug Notları
 
-Şimdi öncelikle siteyi açtığımda deneyerek başladım. Mesela ürün ekledim eklerken stok azalıyor mu baktım. Stok azalmıyordu. Ardından ürünü sildim ve silme fonksiyonu çalışıyor mu diye baktım.Silme fonksiyonu çalışıyordu fakat 2 ürün de silsem 1 ürün ekliyordu stoğa. Aynı üründen 2 tane eklediğimde total de değişmiyordu ama farklı ürünlerden 1'er tane ekleme yapıldığı takdirde artma oluyordu. Bunları gözlemledikten sonra ilgili yerlere debug attım.
+Öncelikle siteyi açıp deneyerek başladım. Ürün ekledim eklerken stok azalıyor mu baktım. Ardından ürünü sildim ve silme fonksiyonu çalışıyor mu diye baktım. Silme fonksiyonu çalışıyordu fakat 2 ürün de silsem 1 ürün ekliyordu stoğa. Aynı üründen 2 tane eklediğimde total de değişmiyordu ama farklı ürünlerden 1'er tane ekleme yapıldığı takdirde artma oluyordu. Bunları gözlemledikten sonra ilgili yerlere debug attım.
 
 ## 1. Hata: Stok Değeri Azalmıyor  
 Ürün sepete eklenirken stok azalmıyordu. addItem fonksiyonun içine debugger ekledim ve tüm kod bloğunu nextleyerek kontrol ettiğimde scope kısmında hiç stock değişmediğini fark ettim. Çünkü `product.stock -= quantity;` eksikti.
